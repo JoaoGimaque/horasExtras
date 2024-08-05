@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Horas Extras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cálculo de Horas Extras</h2>
+        
+        <label for="salary">Salário Bruto Mensal (R$):</label>
+        <input type="number" id="salary" placeholder="Digite o salário bruto" step="0.01" required>
+        
+        <label for="month">Selecione o mês:</label>
+        <input type="month" id="month" required>
+
+        <h3>Horários Padrão da Semana</h3>
+        <table class="weekday-table">
+            <thead>
+                <tr>
+                    <th>Dia</th>
+                    <th>Entrada 1</th>
+                    <th>Saída 1</th>
+                    <th>Entrada 2</th>
+                    <th>Saída 2</th>
+                    <th>Repetir no Mês</th>
+                </tr>
+            </thead>
+            <tbody id="weekday-schedule">
+                <tr>
+                    <td>Segunda-feira</td>
+                    <td><input type="time" id="start1-monday"></td>
+                    <td><input type="time" id="end1-monday"></td>
+                    <td><input type="time" id="start2-monday"></td>
+                    <td><input type="time" id="end2-monday"></td>
+                    <td><input type="checkbox" id="repeat-monday"></td>
+                </tr>
+                <tr>
+                    <td>Terça-feira</td>
+                    <td><input type="time" id="start1-tuesday"></td>
+                    <td><input type="time" id="end1-tuesday"></td>
+                    <td><input type="time" id="start2-tuesday"></td>
+                    <td><input type="time" id="end2-tuesday"></td>
+                    <td><input type="checkbox" id="repeat-tuesday"></td>
+                </tr>
+                <tr>
+                    <td>Quarta-feira</td>
+                    <td><input type="time" id="start1-wednesday"></td>
+                    <td><input type="time" id="end1-wednesday"></td>
+                    <td><input type="time" id="start2-wednesday"></td>
+                    <td><input type="time" id="end2-wednesday"></td>
+                    <td><input type="checkbox" id="repeat-wednesday"></td>
+                </tr>
+                <tr>
+                    <td>Quinta-feira</td>
+                    <td><input type="time" id="start1-thursday"></td>
+                    <td><input type="time" id="end1-thursday"></td>
+                    <td><input type="time" id="start2-thursday"></td>
+                    <td><input type="time" id="end2-thursday"></td>
+                    <td><input type="checkbox" id="repeat-thursday"></td>
+                </tr>
+                <tr>
+                    <td>Sexta-feira</td>
+                    <td><input type="time" id="start1-friday"></td>
+                    <td><input type="time" id="end1-friday"></td>
+                    <td><input type="time" id="start2-friday"></td>
+                    <td><input type="time" id="end2-friday"></td>
+                    <td><input type="checkbox" id="repeat-friday"></td>
+                </tr>
+                <tr>
+                    <td>Sábado</td>
+                    <td><input type="time" id="start1-saturday"></td>
+                    <td><input type="time" id="end1-saturday"></td>
+                    <td><input type="time" id="start2-saturday"></td>
+                    <td><input type="time" id="end2-saturday"></td>
+                    <td><input type="checkbox" id="repeat-saturday"></td>
+                </tr>
+                <tr>
+                    <td>Domingo</td>
+                    <td><input type="time" id="start1-sunday"></td>
+                    <td><input type="time" id="end1-sunday"></td>
+                    <td><input type="time" id="start2-sunday"></td>
+                    <td><input type="time" id="end2-sunday"></td>
+                    <td><input type="checkbox" id="repeat-sunday"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="generateDays()">Gerar Dias do Mês</button>
+        
+        <h3>Dias do Mês</h3>
+        <table class="month-table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Dia da Semana</th>
+                    <th>Entrada 1</th>
+                    <th>Saída 1</th>
+                    <th>Entrada 2</th>
+                    <th>Saída 2</th>
+                    <th>Feriado</th>
+                </tr>
+            </thead>
+            <tbody id="days-container"></tbody>
+        </table>
+        
+        <button onclick="calculateOvertime()">Calcular</button>
+        
+        <div class="result" id="result"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
